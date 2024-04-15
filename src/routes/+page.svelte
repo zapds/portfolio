@@ -5,8 +5,8 @@
 
 <style>
 .animated-gradient {
-    background-image: linear-gradient(-45deg, #007cf0, #00dfd8);
-	background-size: 400% 400%;
+    background-image: linear-gradient(-45deg, #5433ff, #20bdff, #a5fecb);
+	background-size: 800% 800%;
     animation: gradient 5s ease infinite;
 
 }    
