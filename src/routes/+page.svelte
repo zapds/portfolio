@@ -30,7 +30,7 @@
         <img alt="avatar" src={avatar} class="rounded-full h-36 w-36 md:h-48 md:w-48">
         <h1 class="flex text-3xl md:text-5xl font-mono font-bold items-center text-center md:text-left">
             <span class="text-transparent bg-clip-text animated-gradient leading-loose">
-                Hello, World!<br>
+                Hello, world!<br>
                 I'm Zapdos.
             </span>
         </h1>
