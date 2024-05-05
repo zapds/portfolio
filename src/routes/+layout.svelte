@@ -31,7 +31,7 @@
 <style>
 
     .radial-bg {
-    background: radial-gradient(circle 100px at var(--x) var(--y), #ffffff, transparent); 
+    background: radial-gradient(circle 100px at var(--x) var(--y), #1E293B, transparent); 
     }
     .grid-bg {
         background-image: url("/src/lib/assets/grids.svg");
