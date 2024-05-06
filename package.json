@@ -20,6 +20,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@vercel/analytics": "^1.2.2",
     "bits-ui": "^0.21.2",
     "clsx": "^2.1.0",
     "mode-watcher": "^0.3.0",
