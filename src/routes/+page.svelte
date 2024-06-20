@@ -1,5 +1,5 @@
 <script>
-    import avatar from "https://cdn.discordapp.com/attachments/608711480346542102/1093587049870803066/Gifx_18.gif?ex=667465ce&is=6673144e&hm=3b67485b452f26372971bbd462f317c736fca236a29dbf66ef0a622f4bc5e82b&"
+    import avatar from ""
 
 </script>
 
