@@ -31,7 +31,7 @@
         <h1 class="flex text-3xl md:text-5xl font-mono font-bold items-center text-center md:text-left">
             <span class="text-transparent bg-clip-text animated-gradient leading-loose">
                 Hello, world!<br>
-                I'm Zapdos.
+                I'm Soham.
             </span>
         </h1>
     </div>
