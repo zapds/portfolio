@@ -1,5 +1,5 @@
 <script>
-    import avatar from "$lib/assets/Gifx_18.gif"
+    import avatar from "$lib/assets/nik15.png"
 
 </script>
 
