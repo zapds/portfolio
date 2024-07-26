@@ -13,6 +13,36 @@
         coords.set({x: event.clientX, y: event.clientY})
     }
 
+    let homeText = "Home";
+    let projectsText = "Projects";
+    let statsText = "Stats";
+
+
+    function randomChar() {
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    async function changeText(text, setText) {
+        let initial = text;
+        for (let i = 1; i <= text.length; i++) {
+            setText(initial.substring(0, i-1) + randomChar() + initial.substring(i));
+            await new Promise(resolve => setTimeout(resolve, 50)); // Adjust delay as needed
+        }
+        setText(initial);
+    }
+
+    function changeHomeText() {
+        changeText("Home", (newText) => homeText = newText);
+    }
+
+    function changeProjectsText() {
+        changeText("Projects", (newText) => projectsText = newText);
+    }
+
+    function changeStatsText() {
+        changeText("Stats", (newText) => statsText = newText);
+    }
 
     if (typeof window !== 'undefined') {
 
@@ -24,7 +54,6 @@
         window.removeEventListener('mousemove', updateMousePosition);
         });
     }
-
 
 </script>
 
@@ -52,15 +81,24 @@
 
 <div class="overflow-hidden box-border w-screen h-screen">
     <div class="z-4 sticky backdrop-saturate-150 backdrop-blur-xl flex flex-row min-h-12 border-b border-b-border max-w-screen gap-2 md:gap-24 justify-center ">
-        <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/">
-            Home
-        </Button>
-        <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/projects">
-            Projects
-        </Button>
-        <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/stats">
-            Stats
-        </Button>
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="my-auto" on:mouseenter={changeHomeText}>
+            <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/">
+                {homeText}
+            </Button>
+        </div>
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="my-auto" on:mouseenter={changeProjectsText}>
+            <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/projects">
+                {projectsText}
+            </Button>
+        </div>
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="my-auto" on:mouseenter={changeStatsText}>
+            <Button class="my-auto flex items-center justify-center font-mono" variant="outline" href="/stats">
+                {statsText}
+            </Button>
+        </div>
     </div>
 
     <slot class="z-4">
