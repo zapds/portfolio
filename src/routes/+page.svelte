@@ -1,8 +1,54 @@
 <script>
     import avatar from "$lib/assets/avatar.png"
+    import { onMount, onDestroy } from 'svelte';
+
+
+    let zapText = "Zapdos";
+
+
+    function randomChar() {
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    async function changeText(currentText, setText) {
+        let nextText = currentText === "Zapdos" ? "Narendhar" : "Zapdos";
+        let result = currentText.split("");
+
+        for (let i = 0; i < nextText.length; i++) {
+            result[i] = randomChar();
+            setText(result.join(""));
+            await new Promise(resolve => setTimeout(resolve, 50));
+
+            result[i] = nextText[i]; 
+            setText(result.join(""));
+            await new Promise(resolve => setTimeout(resolve, 50));
+        }
+
+        setText(nextText);
+    }
+    
+    async function changeZapText() {
+        await changeText(zapText, (text) => zapText = text);
+    }
+
+    let interval;
+    onMount(() => {
+        function setRandomInterval() {
+            // const randomDelay = Math.floor(Math.random() * (10000 - 2000 + 1)) + 2000;
+            interval = setTimeout(async () => {
+                await changeZapText();
+                setRandomInterval();
+            }, 5000);
+        }
+        setRandomInterval();
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 
 </script>
-
 <style>
 .animated-gradient {
     background-image: linear-gradient(-45deg, #5433ff, #20bdff, #a5fecb);
@@ -31,7 +77,7 @@
         <h1 class="flex text-3xl md:text-5xl font-mono font-bold items-center text-center md:text-left">
             <span class="text-transparent bg-clip-text animated-gradient leading-loose">
                 Hello, world!<br>
-                I'm Zapdos.
+                I'm {zapText}.
             </span>
         </h1>
     </div>
