@@ -109,7 +109,7 @@
       </Button>
     </div>
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class="my-auto" on:mouseenter={changeStatsText}>
+    <div class="my-auto" on:mouseenter={changeBlogText}>
       <Button
         class="my-auto flex items-center justify-center font-mono"
         variant="outline"
